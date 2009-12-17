@@ -43,6 +43,26 @@ namespace CustomControls
             set { lbSuggestions.HighlightColor = value; }
         }
 
+        [
+        Browsable(true),
+        Description("Get or set the control text")
+        ]
+        public override string Text
+        {
+            get { return tbInput.Text; }
+            set { tbInput.Text = value; }
+        }
+
+        [
+        Browsable(true),
+        Description("Foreground text color")
+        ]
+        public Color TextColor
+        {
+            get { return tbInput.ForeColor; }
+            set { tbInput.ForeColor = value; lbSuggestions.ForeColor = value; }
+        }
+
         private string[] DataSet;
         private string CurrentWord = "";
         private const int MaxSuggestions = 15;
@@ -110,17 +130,29 @@ namespace CustomControls
                     break;
 
                 case (Keys.Home):
-                case (Keys.End):
-                case (Keys.Escape):
-                    if (lbSuggestions.Visible)
+                    if (lbSuggestions.Visible) lbSuggestions.Hide();
+                    if (e.Modifiers == Keys.Control)
                     {
-                        lbSuggestions.Hide();
+                        this.ScrollToStart();
                     }
                     e.Handled = false;
+                    break;
+                case (Keys.End):
+                    if (lbSuggestions.Visible) lbSuggestions.Hide();
+                    if (e.Modifiers == Keys.Control)
+                    {
+                        this.ScrollToEnd();
+                    }
+                    e.Handled = false;
+                    break;
+                case (Keys.Escape):
+                    if (lbSuggestions.Visible) lbSuggestions.Hide();
+                    e.Handled = true;
                     break;
 
                 case (Keys.Tab):
                 case (Keys.Enter):
+                case (Keys.Oemcomma):
                     if (lbSuggestions.Visible)
                     {
                         e.SuppressKeyPress = true;
@@ -322,6 +354,20 @@ namespace CustomControls
         private void lbSuggestions_Click(object sender, EventArgs e)
         {
             AddCurrentListBoxSelection();
+        }
+
+        public void ScrollToStart()
+        {
+            tbInput.SelectionStart = 0;
+            tbInput.SelectionLength = 0;
+            tbInput.ScrollToCaret();
+        }
+
+        public void ScrollToEnd()
+        {
+            tbInput.SelectionStart = tbInput.Text.Length;
+            tbInput.SelectionLength = 0;
+            tbInput.ScrollToCaret();
         }
 
         // Need a custom ListBox class for highlighting the selected word in the list items

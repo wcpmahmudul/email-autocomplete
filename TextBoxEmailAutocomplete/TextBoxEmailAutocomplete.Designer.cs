@@ -49,6 +49,8 @@ namespace CustomControls
             // 
             this.lbSuggestions.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.lbSuggestions.FormattingEnabled = true;
+            this.lbSuggestions.HighlightColor = System.Drawing.SystemColors.ControlLight;
+            this.lbSuggestions.HighlightWord = "";
             this.lbSuggestions.Items.AddRange(new object[] {
             "line1",
             "line2",
@@ -80,7 +82,6 @@ namespace CustomControls
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lbSuggestions);
             this.Controls.Add(this.tbInput);
-            this.MaximumSize = new System.Drawing.Size(99999, 246);
             this.MinimumSize = new System.Drawing.Size(103, 246);
             this.Name = "TextBoxEmailAutocomplete";
             this.Size = new System.Drawing.Size(403, 246);
