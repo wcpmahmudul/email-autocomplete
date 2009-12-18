@@ -32,13 +32,15 @@ namespace AdvAutocompleteExample
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbEmailAutocomplete = new CustomControls.TextBoxEmailAutocomplete();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(48, 63);
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.Location = new System.Drawing.Point(49, 63);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(532, 291);
+            this.richTextBox1.Size = new System.Drawing.Size(581, 291);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
@@ -65,19 +67,33 @@ namespace AdvAutocompleteExample
             // tbEmailAutocomplete
             // 
             this.tbEmailAutocomplete.EmailAutocompleteSource = null;
-            this.tbEmailAutocomplete.HighlightColor = System.Drawing.Color.LightGreen;
+            this.tbEmailAutocomplete.HighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tbEmailAutocomplete.Location = new System.Drawing.Point(49, 9);
             this.tbEmailAutocomplete.MaximumSize = new System.Drawing.Size(99999, 246);
             this.tbEmailAutocomplete.MinimumSize = new System.Drawing.Size(103, 246);
             this.tbEmailAutocomplete.Name = "tbEmailAutocomplete";
             this.tbEmailAutocomplete.Size = new System.Drawing.Size(403, 246);
             this.tbEmailAutocomplete.TabIndex = 0;
+            this.tbEmailAutocomplete.TextColor = System.Drawing.SystemColors.WindowText;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Location = new System.Drawing.Point(459, 9);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(171, 48);
+            this.textBox1.TabIndex = 4;
+            this.textBox1.Text = "Many of the example names start with \'J\' and \'B\' so try using those letters first" +
+                ".";
             // 
             // ExampleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 366);
+            this.ClientSize = new System.Drawing.Size(642, 366);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.tbEmailAutocomplete);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -95,6 +111,7 @@ namespace AdvAutocompleteExample
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private CustomControls.TextBoxEmailAutocomplete tbEmailAutocomplete;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
