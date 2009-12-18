@@ -389,6 +389,7 @@ namespace CustomControls
 
             private Color CreateSelectedHighlightColor(Color backColor)
             {
+                // Create color as mid-point between background color and highlight color
                 return Color.FromArgb(
                     (backColor.R + highlightColor.R) / 2,
                     (backColor.G + highlightColor.G) / 2,
